@@ -2,6 +2,8 @@
 
 A compact, reproducible Python demonstrator for a first-order thermal digital twin.
 
+[![Tests](https://github.com/nicolasbogdanoff/thermal-digital-twin/actions/workflows/tests.yml/badge.svg)](https://github.com/nicolasbogdanoff/thermal-digital-twin/actions/workflows/tests.yml)
+
 The repository connects a simple physical model with synthetic sensor data and parameter estimation. It is intended for engineering education, model-based reasoning, and transparent experimentation—not as a validated production model for a specific asset.
 
 ## Model
@@ -30,13 +32,19 @@ python -m venv .venv
 source .venv/bin/activate
 
 # Windows PowerShell
-.venv\Scripts\Activate.ps1
+.venv\\Scripts\\Activate.ps1
 
 pip install -e ".[dev]"
 pytest
 ~~~
 
 ## Example
+
+~~~bash
+python examples/basic_simulation.py
+~~~
+
+The example also illustrates the public API:
 
 ~~~python
 import numpy as np
@@ -71,6 +79,10 @@ print(f"Final temperature: {temperature_c[-1]:.2f} °C")
 | thermal_digital_twin/model.py | Simulation, synthetic observations, and parameter fitting |
 | thermal_digital_twin/__init__.py | Public package interface |
 | tests/test_model.py | Unit tests |
+| examples/basic_simulation.py | Runnable example |
+| .github/workflows/tests.yml | Continuous integration |
+| CITATION.cff | Citation metadata |
+| LICENSE | MIT license |
 | pyproject.toml | Package metadata and dependencies |
 
 ## Scope and limitations
@@ -85,3 +97,11 @@ This repository is an initial, evidence-based project in digital twins and therm
 
 Nicolás Mauricio Bogdanoff  
 ORCID: https://orcid.org/0009-0004-6275-3013
+
+## Citation
+
+If this software contributes to a technical report, class activity, research note, or publication, cite it using [CITATION.cff](CITATION.cff).
+
+## License
+
+This project is released under the [MIT License](LICENSE).
