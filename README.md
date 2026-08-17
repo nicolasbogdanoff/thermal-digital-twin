@@ -42,6 +42,7 @@ pytest
 
 ~~~bash
 python examples/basic_simulation.py
+python examples/parameter_recovery.py
 ~~~
 
 The example also illustrates the public API:
@@ -79,7 +80,8 @@ print(f"Final temperature: {temperature_c[-1]:.2f} °C")
 | thermal_digital_twin/model.py | Simulation, synthetic observations, and parameter fitting |
 | thermal_digital_twin/__init__.py | Public package interface |
 | tests/test_model.py | Unit tests |
-| examples/basic_simulation.py | Runnable example |
+| examples/basic_simulation.py | Runnable simulation example |
+| examples/parameter_recovery.py | Synthetic-data parameter-recovery experiment |
 | .github/workflows/tests.yml | Continuous integration |
 | CITATION.cff | Citation metadata |
 | LICENSE | MIT license |
