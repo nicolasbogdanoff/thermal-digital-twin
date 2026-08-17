@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Thermal Digital Twin: A First-Order Thermal Model Demonstrator"
+type: software
+authors:
+  - family-names: Bogdanoff
+    given-names: Nicolás Mauricio
+    orcid: https://orcid.org/0009-0004-6275-3013
+abstract: >
+  A reproducible Python demonstrator that connects a first-order thermal model
+  with synthetic observations and transparent parameter estimation.
+keywords:
+  - digital twins
+  - thermal engineering
+  - heat transfer
+  - scientific computing
+  - parameter estimation
+repository-code: https://github.com/nicolasbogdanoff/thermal-digital-twin
+url: https://github.com/nicolasbogdanoff/thermal-digital-twin
+license: MIT
