@@ -20,6 +20,7 @@ The implementation advances the state over a supplied time grid using the exact 
 - Time-varying ambient temperature and input-power signals.
 - Synthetic observations with reproducible Gaussian sensor noise.
 - Least-squares estimation of UA and C from observed temperature data.
+- MAE, RMSE, and maximum absolute error summaries for comparing predictions with observations.
 - Input validation for time grids, physical parameters, and signal shapes.
 - Small unit-test suite covering simulation and parameter recovery.
 

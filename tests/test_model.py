@@ -3,6 +3,7 @@ import pytest
 
 from thermal_digital_twin import (
     ThermalParameters,
+    fit_metrics,
     fit_parameters,
     generate_observations,
     simulate_temperature,
@@ -64,3 +65,15 @@ def test_invalid_time_grid_is_rejected() -> None:
             initial_temperature_c=25.0,
             params=ThermalParameters(ua=10.0, heat_capacity=1000.0),
         )
+
+
+def test_fit_metrics_reports_reproducible_temperature_errors() -> None:
+    metrics = fit_metrics([20.0, 22.0, 24.0], [21.0, 21.0, 25.0])
+    assert metrics["mae_c"] == pytest.approx(1.0)
+    assert metrics["rmse_c"] == pytest.approx(1.0)
+    assert metrics["max_abs_error_c"] == pytest.approx(1.0)
+
+
+def test_fit_metrics_rejects_mismatched_shapes() -> None:
+    with pytest.raises(ValueError, match="same non-empty shape"):
+        fit_metrics([20.0], [20.0, 21.0])

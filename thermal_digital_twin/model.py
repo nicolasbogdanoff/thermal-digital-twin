@@ -136,3 +136,19 @@ def fit_parameters(
         heat_capacity=float(np.exp(result.x[1])),
     )
     return fitted_parameters, result
+
+
+def fit_metrics(observed_temperature_c: Any, predicted_temperature_c: Any) -> dict[str, float]:
+    """Summarize prediction error with scale-preserving temperature metrics."""
+    observed = np.asarray(observed_temperature_c, dtype=float)
+    predicted = np.asarray(predicted_temperature_c, dtype=float)
+    if observed.shape != predicted.shape or observed.size == 0:
+        raise ValueError("observed and predicted temperatures must have the same non-empty shape")
+    if not np.isfinite(observed).all() or not np.isfinite(predicted).all():
+        raise ValueError("observed and predicted temperatures must be finite")
+    error = predicted - observed
+    return {
+        "mae_c": float(np.mean(np.abs(error))),
+        "rmse_c": float(np.sqrt(np.mean(error**2))),
+        "max_abs_error_c": float(np.max(np.abs(error))),
+    }
